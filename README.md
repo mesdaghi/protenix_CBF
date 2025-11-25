@@ -32,6 +32,7 @@ Each sequence is saved with its UniProt accession (when available) and formatted
 python fasta_to_protenix_json_all.py input.fasta output.json
 
 ---
+## 🚀 Also
 A SLURM script (run_protenix_array.sh) is provided for batch processing JSON chunks:
 How it works:
 Activates a conda environment containing Protenix
