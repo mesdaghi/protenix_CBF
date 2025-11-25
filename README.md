@@ -30,3 +30,20 @@ Each sequence is saved with its UniProt accession (when available) and formatted
 
 ```bash
 python fasta_to_protenix_json_all.py input.fasta output.json
+
+
+A SLURM script (run_protenix_array.sh) is provided for batch processing JSON chunks:
+How it works:
+Activates a conda environment containing Protenix
+Detects all JSON chunks in ./json/
+Each SLURM array task processes one chunk
+Outputs predictions to ./mouse_all/
+Measures runtime per chunk
+
+Submitting the SLURM Array Job
+# Count the number of JSON chunks
+NUM_CHUNKS=$(ls ./json/ALL_mouse_chunk_*.json | wc -l)
+
+# Submit array job (1 task per chunk)
+sbatch --array=1-$NUM_CHUNKS run_protenix_array.sh
+
