@@ -1,6 +1,6 @@
 # protenix_CBF
 How to run protenix on CBF Cluster
- # FASTA → Protenix JSON Converter
+# FASTA → Protenix JSON Converter
 
 A simple Python script to convert multi-sequence **FASTA** files into **Protenix-compatible JSON** format.  
 Each sequence is saved with its UniProt accession (when available) and formatted as a `proteinChain` object.
@@ -15,6 +15,7 @@ Each sequence is saved with its UniProt accession (when available) and formatted
   - `>tr|Q9XYZ1|...`
 - Falls back to the first token of the header if no pipe (`|`) format is found
 - Outputs clean, indented JSON ready for Protenix workflows
+- Supports **splitting large JSON files into smaller chunks** for array jobs or batch processing
 
 ---
 
@@ -29,4 +30,3 @@ Each sequence is saved with its UniProt accession (when available) and formatted
 
 ```bash
 python fasta_to_protenix_json_all.py input.fasta output.json
-
